@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Kredi Yönetim Sistemi</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <style type="text/css">
+        body {
+            background: url('https://u7.uidownload.com/vector/255/364/vector-blue-and-white-water-background-.jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container my-2">
+    <h1>Kredi Durumunu Sorgula</h1>
+
+            <input type="text" th:field="*{customer.identityNumber}"
+                   placeholder="TC Kimlik No" class="form-control mb-4 col-4">
+
+                <a th:href="@{/getCustomer/{identityNumber}(identityNumber=${customer.identityNumber})}" class="btn btn-primary">Sorgula</a>
+
+
+</div>
+</body>
+</html>
+
+
+

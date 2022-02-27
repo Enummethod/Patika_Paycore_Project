@@ -1,0 +1,124 @@
+openapi: 3.0.3
+info:
+  description: Project API
+  title: Project API
+  version: 1.0.0
+servers:
+- url: https://Project
+paths:
+  /:
+    get:
+      operationId: viewHomePage
+      responses:
+        "200":
+          description: OK
+      summary: 'GET '
+      x-accepts: application/json
+  /deleteCustomer/{id}:
+    get:
+      operationId: deleteCustomer
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: number
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: GET deleteCustomer/{id}
+      x-accepts: application/json
+  /getCustomer/{identityNumber}:
+    get:
+      operationId: getCustomers
+      parameters:
+      - explode: false
+        in: path
+        name: identityNumber
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: GET getCustomer/{identityNumber}
+      x-accepts: application/json
+  /page/{pageNo}:
+    get:
+      operationId: findPaginated
+      parameters:
+      - explode: false
+        in: path
+        name: pageNo
+        required: true
+        schema:
+          format: int32
+          type: number
+        style: simple
+      - explode: true
+        in: query
+        name: sortField
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sortDir
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      summary: GET page/{pageNo}
+      x-accepts: application/json
+  /saveCustomer:
+    post:
+      operationId: saveCustomer
+      responses:
+        "200":
+          description: OK
+      summary: POST saveCustomer
+      x-accepts: application/json
+  /showFormForUpdate/{id}:
+    get:
+      operationId: showFormForUpdate
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: number
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: GET showFormForUpdate/{id}
+      x-accepts: application/json
+  /showNewCustomerForm:
+    get:
+      operationId: showNewCustomerForm
+      responses:
+        "200":
+          description: OK
+      summary: GET showNewCustomerForm
+      x-accepts: application/json
+  /showQueryForm:
+    get:
+      operationId: showQueryForm
+      responses:
+        "200":
+          description: OK
+      summary: GET showQueryForm
+      x-accepts: application/json
+components:
+  schemas: {}
+
